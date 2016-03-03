@@ -1,0 +1,126 @@
+----
+
+** HOMESTEAD 
+
+* install homestead
+    > http://xpressengine.github.io/laravel-korean-docs/docs/5.0/homestead/
+    > https://www.youtube.com/watch?v=p0veZd9mtGc&index=7&list=PLQuP2D8m_GIVJz2J_xuvb7TktaaJZnl0A
+    > pre install Git Bash, Oracle VM VirtualBox, Vagrant
+
+    $ vagrant box add laravel/homestead 
+        C:\Users\obpark\.vagrant.d
+    $ git clone https://github.com/laravel/homestead.git Homestead
+    $ cd ~/Homestead
+    $ bash init.sh
+        C:\Users\obpark\.homestead
+    $ ssh-keygen -t rsa -C "joinparky@gmail.com"
+    $ vi ~/.homestead/Homestead.yaml
+        - map: D:/workspace/vagrant
+          to: /home/vagrant/workspace
+    $ vagrant up
+    $ vagrant ssh
+
+* add site
+    > add hosts file
+        192.168.10.10  dev.sebinetech
+    > vm setting 
+    $ serve dev.sebinetech /home/vagrant/workspace/sebinetech/laravel/public 80
+    $ mkdir -p /home/vagrant/workspace/sebinetech/
+    $ composer create-project laravel/laravel /home/vagrant/workspace/sebinetech/laravel --no-dev --prefer-dist -vvv
+    $ mysql -uhomestead -psecret
+
+----
+
+** LARAVEL 
+
+* install laravle 
+> composer create-project laravel/laravel {directory} --no-dev --prefer-dist -vvv
+
+* 참고
+> http://xpressengine.github.io/laravel-korean-docs/docs/5.0/homestead
+> http://dev1.xpressengine.com/laravel/boxes/homestead/homestead.json
+
+----
+
+** COMPOSER
+
+* install composer
+> curl -sS https://getcomposer.org/installer | php
+
+* globally
+> mv composer.phar /usr/local/bin/composer
+
+* make package
+> ?
+
+* find package
+> https://packagist.org
+
+* composer.json 
+> 패키지 list를 저장하고 있는 파일
+
+* add package
+> php composer.phar require vendor/package:2.*
+> php composer.phar update
+>> composer.json의 패키지를 update 함
+
+* remove package
+> php composer.phar remove vendor/package:2.*
+
+* 최신성 유지
+> php composer.phar self-update
+
+* 참고
+> https://opentutorials.org/course/62/5221
+
+----
+
+** VAGRANT
+    vagrant box
+        vagrant box add <address> : 박스 추가
+        vagrant box list : 설치된 박스 리스트
+        vagrant box outdated : 최신 업데이트 된 박스들 보여주기
+        vagrant box remove <address> : 박스 삭제
+    vagrant destroy : 완전히 디스크에서 삭제
+    vagrant global-status : 현재 켜져 있는 Vagrant environments 를 보여준다. vagrant halt 등으로 꺼줘야 한다.
+    vagrant halt : vagrant 꺼준다
+    vagrant package : 현재 실행중인 Virtualbox 를 재사용 가능한 box로 만든다.
+    vagrant ssh 
+    vagrant status
+
+----
+
+**  PHPSTORM
+    > http://blog.jetbrains.com/phpstorm/2015/01/laravel-development-using-phpstorm/
+        > Settings > Plugins > Browse repositories… 
+            >> Laravel Plugin > restart
+        > Settings > Other Settings > Laravel Plugin 
+            >> Enable Plugin for this Project
+
+    > https://github.com/barryvdh/laravel-ide-helper
+        >> composer require barryvdh/laravel-ide-helper
+        >> config/app.php
+            Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        >> php artisan ide-helper:generate
+    
+    ----
+
+    https://github.com/outofcontrol/Blade.tmbundle
+    Blade 템플릿 문법강조 지원하는 텍스트메이트 번들이네요. 먼저 텍스트메이트 플러그인 설치해놓고, 이 번들 등록하고, 테마 설정 지정하면 블레이드 문법 강조 되는 거 볼 수 있습니다. 설치에 다소 헤맸지만 잘 되네요.
+    --
+    https://github.com/koomai/phpstorm-laravel-live-templates
+    라이브 템플릿입니다. 라이브 템플릿 기능이 스크린캐스트 보면 좋아보이기는 하던데, 일일이 등록하기가 귀찮아서 안 쓰고 있었는데 이거 덕분에 좀 써보고 있습니다.
+    > C:\Users\obpark\.WebIde100\config\templates
+    --
+    https://github.com/barryvdh/laravel-ide-helper
+    이건 Composer 패키지인데, 설치법 따라 세팅해두면 자동완성이 잘 지원됩니다.
+    > By using example metadata below. It can reside anywhere, but we recommend using .phpstorm.meta.php file in project root.
+    --
+    FTP로 불러온 파일을 원격 서버로 저장하려면 Alt+Shift+Q를 누르면 됩니다.
+    단순히 Ctrl+S를 누르면 업로드가 되지 않습니다.
+    단축키를 변경하는 방법은,
+    Settings | Keymap | Upload current remote file 를 찾으셔서 해당 항목에 마우스 우측 버튼을 클릭 후,
+    Add Keyboard Shortcut 에서 입력하시고 저장해서 사용하시면 됩니다.
+    저는 Ctrl+Shift+Q를 입력해서 사용합니다.
+
+

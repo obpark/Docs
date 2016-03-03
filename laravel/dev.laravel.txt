@@ -1,0 +1,86 @@
+* add laravel menu 
+    > vi composer.json 
+        > add require: "vespakoen/menu": "3.*"
+    > $ composer update
+
+    And add the following to your config/app.php file :
+        In the Service Providers array : 'Menu\MenuServiceProvider',
+        In the aliases array : 'Menu' => 'Menu\Menu',
+
+    Lastly, run the following from your project's root dir:
+        php artisan vendor:publish
+
+
+http://learninglaravel.net/laravel-dynamic-menu-tutorial/link
+https://github.com/lavary/laravel-menu#getting-started
+https://github.com/vespakoen/menu
+
+
+
+* whereis my customer library(function or class)
+    http://ghost.rivario.com/laravel4%EC%97%90-%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0/
+    https://laracasts.com/discuss/channels/requests/l5-how-to-add-my-own-custom-class
+
+---
+
+* TOREAD
+    > http://ghost.rivario.com/laravel-faq/
+
+----
+
+* admin site
+> settings/dashboard
+
+* create db
+    CREATE DATABASE sebinetech;
+    GRANT ALL PRIVILEGES ON sebinetech.* TO sebinetech@localhost IDENTIFIED BY 'sebinetech*';
+    FLUSH PRIVILEGES;
+
+* set, get global variable
+> laravel5 global variable
+> where is constant
+
+* put ftp ref-codeigniter source
+
+* add laravelcollective
+    https://laravelcollective.com/docs/5.2/html
+    composer require laravelcollective/html:5.2
+
+    $ php artisan tinker
+    >>> echo Form::text('foo')
+
+* auto deployment
+    > push server use ftp?
+
+
+
+
+
+
+
+
+
+
+
+
+
+----
+
+* SETTING 
+> vm setting
+    $ cd ~/Homestead/
+    $ vagrant up
+    $ vagrant ssh
+    $ composer create-project laravel/laravel /home/vagrant/workspace/dev.laravel --no-dev --prefer-dist -vvv
+    $ serve dev.laravel /home/vagrant/workspace/dev.laravel/public 80
+
+    $ mysql -uroot -psecret
+
+> add hosts file
+    192.168.10.10  dev.laravel
+
+> http://dev.laravel
+
+> phpstorm
+    File > New Project...
+
