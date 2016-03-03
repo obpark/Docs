@@ -1,0 +1,87 @@
+----
+* 개요
+1. make empty project
+2. checkout version control system
+    VCS > Checkout from Version Control > Subversion 
+3. make module 
+    File > New > Module from Existing Sources
+4. config web module
+    File > Project Structure
+5. run configuration tomcat 
+    Run > Edit Configurations > add > Tomcat Server > Local 
+
+----
+
+* extend trial 
+> delete C:\Users\obpark\.IntelliJIdea15\config\eval\idea15.evaluation.key
+
+----
+
+* was hot swapping 
+> https://beyondj2ee.wordpress.com/2015/10/24/%EB%B9%A0%EB%A5%B8-%EC%83%9D%EC%82%B0%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-%EC%9E%AC%EA%B8%B0%EB%8F%99-%EC%97%86%EC%9D%B4-%EC%84%9C%EB%B2%84-hot-swapping-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/
+> "-javaagent:D:\projects\springloaded-1.2.5.RELEASE.jar -noverify"
+> setting 
+    > Settings > Build, Execution, Deployment > Compiler 
+    > check 'Make project automatically'
+> server.xml
+    > autoDeploy="true", unpackWARs="true", reloadable="false"
+
+----
+
+* compiler version
+> Settings > Build, Execution, Deployment > Compiler > Java Compiler
+>> Per-module bytecode version 
+> File > Project Structure > Modules > Sources > Language level
+
+----
+
+* Auto Import
+    IntelliJ에서 이클립스 (Eclipse)의 Organize Imports에 해당하는 기능은
+    Optimize Imports이다.
+    단축키는 다음과 같다.
+    Ctrl + Alt + 'O'
+
+    이클립스의 Organize Imports는 자동으로 import 문이 추가되는데 IntelliJ의 Optimize Imports는 사용하지 않는 import 문 제거만 된다.
+    다음과 같이 설정하면 import 문의 추가 및 제거가 자동으로 된다.
+    File -> Settings... -> Editor -> Auto Import
+    Java에서 다음을 추가한다.
+        Optimize imports on the fly
+        Add unambiguous imports on the fly
+
+----
+
+* TODO
+> server.xml, context.xml 따로 설정하는 법
+> tomcat deploy path
+> library path 맞게 로딩하는 것인지?
+
+----
+
+* Enabling Web app development support for an existing project or module
+1. Open the Project tool window (e.g. View | Tool Windows | Project).
+2. Right-click the project or the module folder and select Add Framework Support.
+3. In the left-hand pane of the Add Frameworks Support dialog that opens, select the Web Application check box.
+4. In the right-hand part of the dialog, select the version of the Servlet specification to be supported from the Versions list.
+5. If you want the deployment descriptor web.xml file to be created, select the Create web.xml check box.
+Click OK in the Add Frameworks Support dialog.
+> https://www.jetbrains.com/idea/help/enabling-web-application-support.html
+
+
+* IntelliJ inspection gives “Cannot resolve symbol” but still compiles code
+    First of all you should try File | Invalidate Caches and if it doesn't help, delete IDEA system directory. Then re-import the Maven project and see if it helps.
+    In some weird cases compiled classes may report wrong info and confuse IDEA. Verify that the classes from this jar report correct names using javap.
+> http://stackoverflow.com/questions/5905896/intellij-inspection-gives-cannot-resolve-symbol-but-still-compiles-code
+
+----
+
+* 참고
+
+https://groups.google.com/forum/#!msg/ksug/x1tsyNoE5ZM/UemaloU4me8J
+https://beyondj2ee.wordpress.com/2013/06/15/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part2-getting-start-intellij-%EC%9E%90%EB%B0%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8E%B8/
+https://beyondj2ee.wordpress.com/2013/06/01/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part1-getting-start-intellij-%EA%B8%B0%EB%B3%B8-%EC%84%A4%EC%A0%95%ED%8E%B8/
+https://beyondj2ee.wordpress.com/2013/06/23/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part3-getting-start-intellij-svn/
+http://okky.kr/article/281970
+http://www.slideshare.net/juntai811/itellij-idea
+http://1004lucifer.blogspot.kr/2014/04/intellij-tomcat-serverxml.html
+
+----

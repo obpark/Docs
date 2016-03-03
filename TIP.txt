@@ -1,0 +1,28 @@
+* hostname 변경
+    * /etc/sysconfig/network 에서 hostname을 변경
+    * 즉시변경 
+        # echo {hostname} > /proc/sys/kernel/hostname
+
+* font install
+    sudo mv *.ttf /usr/share/fonts
+
+* known_hosts Clean Up
+    $ ssh-keygen -F innobid.net 
+    $ ssh-keygen -R innobid.net 
+
+    $ ssh-keygen -F 114.108.177.243
+    $ ssh-keygen -R 114.108.177.243
+
+
+* excel memo 글자수에 맞춰 자동 크기 조정
+    1. ALT+F11을 실행하여 VB 에디터 open
+    2. 상단 삽입>모듈 메뉴 클릭하여 아래 스크립트 Copy & Paste
+        Sub 메모글꼴변경()
+        Dim C As Comment
+            For Each C In ActiveSheet.Comments
+                C.Shape.TextFrame.Characters.Font.Size = 10 '원하는 크기를 본인이 입력하세요
+                C.Shape.TextFrame.AutoSize = True '글자수에 맞춰 자동 크기 조정
+            Next C
+        End Sub
+
+    3. 엑셀에서 '보기>매크로>실행' 하면 글자수에 맞춰 자동 크기 조정 됨

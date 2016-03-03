@@ -1,0 +1,49 @@
+Eclipse에서 import한 프로젝트를 IntelliJ에서 Checkout
+
+1. File > New > Project
+    Empty Project
+
+2. VCS > Checkout from Version Control > Subversion
+    You have checked out an Intellij IDEA project file:
+    D:\projects\komsco_idcard\user\.classpath
+    Would you like to open it?
+    No
+
+3. File > Project Structure
+    Modules > Add > Import Module
+    Import module from external model 
+        Eclipse
+
+    Dependencies
+        delete 'org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER'
+        delete 'org.eclipse.jst.j2ee.internal.web.container'
+
+    Add > Web
+        edit 'Deployment Descriptors'
+        edit 'Web Resource Directories'
+        creaet Artifacts
+
+    Add as Maven Project
+
+4. Run > Edit Configurations
+    Add > Tomcat Server > Local
+    Server tab
+    Deployment
+
+----
+* 참고 
+> port 변경 
+http://okky.kr/article/218648
+
+> maven goal
+http://starblood.tistory.com/entry/IntelliJ-tomcat-%EA%B5%AC%EB%8F%99%EC%8B%9C-%EC%9C%A0%EC%9D%98%EC%82%AC%ED%95%AD
+
+> setup frameworks
+http://ezsnote.tistory.com/entry/intelliJ-%EC%97%90%EC%84%9C-%EA%B0%9C%EB%B1%94%ED%95%B4%EB%B3%B4%EA%B8%B0
+
+> jndi
+http://okky.kr/article/281970
+
+
+https://beyondj2ee.wordpress.com/2013/06/23/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part3-getting-start-intellij-svn/
+http://ezsnote.tistory.com/entry/intelliJ-%EC%97%90%EC%84%9C-%EA%B0%9C%EB%B1%94%ED%95%B4%EB%B3%B4%EA%B8%B0

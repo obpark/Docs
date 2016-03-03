@@ -1,0 +1,192 @@
+이 내용은 사실, "man vi" 해보시면 전부 다 나오는 내용이라 아시는 분은 다 아시는 것이겠지만, 어제나, 오늘이나 vi를 고집하는 한 사용자로서 얻게된 유용한 기능들을 한번 모아보았습니다. 
+
+
+1. Marking 
+이거 모르면 안 된다고 생각합니다. command mode에서 "mx"라고 하시면 현재 위치에 x표가 생깁니다. 눈에는 안 보이지요. 다른 어떤 page에서도 이제 "'x"하시면 x표했던 자리로 돌아갑니다. "d'x"식으로 범위를 지정할 때도 유용합니다. 
+
+
+2. Buffering 
+
+vi는 일회용 buffer밖에 없어서 불편해. 아닙니다. "add 하면 한 line이 지워지면서 buffer a로 갑니다. 꺼낼땐, "ap 하면 나오구요. 
+참고로, 큰 P 는 앞으로, 작은 p 는 뒤로 paste합니다. 어떤 paragraph를 반복할 경우엔 큰 P 가 좋지요. 해 보세요. 
+
+
+3. Cursor 이동과 편집 
+
+# line의 맨 뒤에서 부터 쓰고 싶다
+
+A 
+
+# 한 단어를 바꾸고 싶다.
+
+cw 
+
+# 특수기호 상관없이 다음 띄어쓰기까지 바꾸고 싶다.
+
+cW 
+
+# 현재 단어의 바로 뒤부터 쓰고 싶다.
+
+ea 
+
+# 딱 한글자만 바꾸고 싶다.
+
+r 
+
+# insert말고 replace mode로 쓰고 싶다.
+
+R 
+
+
+
+
+4. Scroll과 Cursor 이동 
+
+긴 file 작은 화면. j와 k만으로는 왔다갔다 하기가 무척 불편하지요. 
+
+# page 단위로 scroll하고 싶다.
+
+^F, ^B 
+
+# cursor를 맨 위로 보내고 싶다.
+
+H 
+
+# 가운데와 맨 아래는?
+
+M, L 
+
+# 내가 지금 보고 있는 line이 맨 위에 있었으면 좋겠다.
+
+z Enter 
+
+# 가운데로 보내려면?
+
+z. 
+
+# line 543으로 가고 싶다.
+
+543G 
+
+# file 맨 뒤로 가고 싶다.
+
+G 
+
+# 위의 key만 익숙해도 충분하지만, 그 밖에,
+
+^U, ^D, ^E, ^Y 등 
+
+
+
+5. ex command
+
+command mode에서 ":"를 치면 왼쪽 밑에 ":"가 나타나는데,
+
+여기서 먹는 명령어는 vi의 전신 ex editor의 command입니다. 
+
+# file 전체에서 "kkk"를 "lala"로 바꾸고 싶다.
+
+(물론, 이 예 이외의 다양한 substitution이 지원됩니다.)
+
+:%s/kkk/lala/g 
+
+# 다른 file을 edit하고 싶다.
+
+:e file_name 
+
+# 다른 file을 읽어들이고 싶다.
+
+:r file_name 
+
+# shell을 들락날락 하지 않고, 한꺼번에 여러개의 file을.
+
+vi *.C
+
+:n
+
+:n
+
+... 
+
+# 딱 두 개의 file만 번갈아 가면서 edit하고 싶다.
+
+vi lala.C lala.h
+
+:n
+
+:e #
+
+:e #
+
+:e #
+
+... 
+
+# 유용한 set variable들
+
+set all : 모든 variable들의 status
+
+set tabstop=4 : tab 하나의 간격
+
+set shiftwidth=4 : shift하나의 간격
+
+set showmode : 오른쪽 밑을 보세요.
+
+set ignorecase : search, substitution 에서 대문자, 소문자 무시 
+
+
+
+
+6. 그 밖에 짭짤한 것들. 
+
+# forward and backward pattern search
+
+/ ? 
+
+# next and previous search
+
+n N 
+
+# terminal이 안 맞아서 화면이 뒤죽박죽이 되었네.
+
+또는, 친구가 talk를 걸어서 화면을 가렸다.
+
+^L : refresh 
+
+# 괄호들이 너무 많아 누가 누구 짝인지 모르겠다.
+
+해당괄호 위에 cursor를 올려놓고, "%" 
+
+# 30 line을 indent-in 해야한다. (Program coding 도중)
+
+30>> 
+
+# out
+
+30<< 
+
+# 방금 전에 썼던 editting을 한번 더 적용시키고 싶다.
+
+똑같은 어구를 여기저기 붙이거나, 여기저기에서 똑같은 change를
+
+원하거나, ...
+
+. 
+
+# 오른손은 mouse에 있는데, ":wq"는 어떻게...
+
+ZZ 
+
+# windows에서 처럼 file의 a.txt라는 file의 일부분을
+
+b.txt라는 file에 복사고싶다.
+
+vi a.txt
+
+"ay'x --- "a buffer에, x라고 mark한 지점까지 yank
+
+:e b.txt --- b.txt를 부르고,
+
+"ap --- "a buffer를 paste 
+
+

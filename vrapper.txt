@@ -1,0 +1,7 @@
+http://vrapper.sourceforge.net/documentation/?topic=optional_plugins
+
+
+zo = org.eclipse.ui.edit.text.folding.expand
+zR = org.eclipse.ui.edit.text.folding.expand_all
+zc = org.eclipse.ui.edit.text.folding.collapse
+zM =org.eclipse.ui.edit.text.folding.collapse_all
