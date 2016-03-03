@@ -1,0 +1,54 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+
+
+
+##### add config #####
+#export LANG="ko_KR.EUC-KR"
+#export LC_ALL="ko_KR.EUC-KR" 
+#export LANG="ko_KR.UTF-8"
+#export LC_ALL="ko_KR.UTF-8" 
+
+#export CLICOLOR="YES";
+#export LSCOLORS="ExGxFxdxCxDxDxhbadExEx";
+#
+## User specific environment and startup programs
+#export INIT_COLOR='\033\[0m';
+#export BOLD='\033\[1m'
+#export LINE='\033\[4m'
+#export FG_BLACK='\033\[30m'
+#export FG_RED='\033\[31m'
+#export FG_GREEN='\033\[32m'
+#export FG_YELLOW='\033\[33m'
+#export FG_BLUE='\[\033[34m'
+#export FG_VIOLET='\033\[35m'
+#export FG_VIRDIAN='\033\[36m'
+#export FG_WHITE='\033\[37m'
+#export BG_BLACK='\033\[40m'
+#export BG_RED='\033\[41m'
+#export BG_GREEN='\033\[42m'
+#export BG_YELLOW='\033\[43m'
+#export BG_BLUE='\033\[44m'
+#export BG_VIOLET='\033\[45m'
+#export BG_VIRDIAN='\033\[46m'
+#export FG_WHITE='\033\[47m'
+
+#export PS1="[\u@\h \w]$ "
+#export PS1='[\[\033]0;\w\007\033[32m\]\u@\h \[\033[33m\w\033[0m\]]$ '
+#export PS1='\n[\e[0;33m\u@\h \e[0;32m\w\n\e[1;34m\@ \e[0;00m]$ '
+#export PS1='\n(W:$WINDOW S:$SHLVL)[\e[0;33m\u@[\e[0;35m\H \e[0;32m\w\n\e[1;34m\@ \e[0;00m]$ '
+#export PS1='\n(S:$SHLVL W:$WINDOW) \e[0;33m\u@\e[0;35m\H \e[0;32m\w\n\e[1;34m\@ \e[0;00m]$ '
+#export PS1='[\e[0;36m\t\e[0;00m / \e[0;33m\u@\e[0;35m\H:\w]\e[1;00m# '
+export PS1='[\t \u@\H:\w]\n# '
+#export PS1="[\t \u@\h \W]# "
+##### add config #####

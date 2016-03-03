@@ -1,0 +1,20 @@
+* plugin NERDTree
+    http://www.vim.org/scripts/script.php?script_id=1658
+
+    # wget http://www.vim.org/scripts/download_script.php?src_id=17123 -O nerdtree.zip
+    # whereis vim
+    # ll /usr/share/vim
+    # unzip -d /usr/share/vim/vim72/ nerdtree.zip 
+    # vi ~/.vimrc
+        let g:NERDTreeDirArrows=0 "NERDTree
+
+* colorscheme monokai
+    https://github.com/sickill/vim-monokai
+
+    # wget https://github.com/sickill/vim-monokai/archive/master.zip -O monokai.vim
+    # whereis vim
+    # ll /usr/share/vim
+    # mv monokai.vim /usr/share/vim/vim72/colors/
+    # vi ~/.vimrc
+        colorscheme monokai
+
