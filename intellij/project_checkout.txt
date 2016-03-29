@@ -18,17 +18,18 @@ Eclipse에서 import한 프로젝트를 IntelliJ에서 Checkout
         delete 'org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER'
         delete 'org.eclipse.jst.j2ee.internal.web.container'
 
+    Add as Maven Project
+
     Add > Web
         edit 'Deployment Descriptors'
         edit 'Web Resource Directories'
         creaet Artifacts
 
-    Add as Maven Project
-
 4. Run > Edit Configurations
     Add > Tomcat Server > Local
     Server tab
-    Deployment
+        VM options: -Dfile.encoding=UTF-8
+    Deployment tab
 
 ----
 * 참고 

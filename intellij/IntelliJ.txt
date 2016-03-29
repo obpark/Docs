@@ -11,9 +11,15 @@
     Run > Edit Configurations > add > Tomcat Server > Local 
 
 ----
+* console log(톰켓 console log 한글 깨질경우)
+    C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1\bin\idea64.exe.vmoptions
+    > -Dfile.encoding=UTF-8 
+
+* memory 
+    C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1\bin\idea64.exe.vmoptions
 
 * extend trial 
-> delete C:\Users\obpark\.IntelliJIdea15\config\eval\idea15.evaluation.key
+    > delete C:\Users\obpark\.IntelliJIdea15\config\eval\idea15.evaluation.key
 
 ----
 
