@@ -91,6 +91,8 @@
 ----
 
 **  PHPSTORM
+    https://confluence.jetbrains.com/display/PhpStorm/Laravel+Development+using+PhpStorm
+
     > http://blog.jetbrains.com/phpstorm/2015/01/laravel-development-using-phpstorm/
         > Settings > Plugins > Browse repositories… 
             >> Laravel Plugin > restart
@@ -98,9 +100,11 @@
             >> Enable Plugin for this Project
 
     > https://github.com/barryvdh/laravel-ide-helper
+        >> vi composer.json
         >> composer require barryvdh/laravel-ide-helper
-        >> config/app.php
-            Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        >> vi config/app.php
+            providers
+                Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         >> php artisan ide-helper:generate
     
     ----

@@ -1,3 +1,72 @@
+* INSTALL LARAVEL 
+    $ cd ~/Homestead/
+    $ vagrant up
+    $ vagrant ssh
+    $ mkdir -p /home/vagrant/workspace/dev.laravel
+    $ composer create-project laravel/laravel dev.laravel --no-dev --prefer-dist -vvv
+    $ cd dev.laravel 
+    $ composer update
+
+----
+
+* PHPSTORM
+    > http://blog.jetbrains.com/phpstorm/2015/01/laravel-development-using-phpstorm/
+        > Settings > Plugins > Browse repositories… 
+            >> Laravel Plugin > restart
+        > Settings > Other Settings > Laravel Plugin 
+            >> Enable Plugin for this Project
+
+    > https://github.com/barryvdh/laravel-ide-helper
+        >> composer require barryvdh/laravel-ide-helper
+        >> vi config/app.php
+            providers
+                Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        >> php artisan ide-helper:generate
+
+----
+
+* ENV
+    D:\workspace\vagrant\dev.laravel\.env
+        APP_DEBUG=true
+        APP_URL=http://dev.laravel
+    D:\workspace\vagrant\dev.laravel\config\app.php
+        'timezone' => 'Asia/Seoul',
+        'locale' => 'ko',
+
+    > 라우트목록
+        $ php artisan route:list
+    > 인증
+        php artisan make:auth
+        https://www.xpressengine.com/learn/23061316
+    > 마이그레이션 실행
+        $ php artisan migrate
+        > 마이그레이션파일 만들기
+        $ php artisan make:migration create_users_table
+
+    > 컨트롤러파일 만들기
+        php artisan make:controller PostController
+        Route::resource('post', 'PostController');
+
+    php artisan route:cache
+    php artisan route:clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----
+
 * add laravel menu 
     > vi composer.json 
         > add require: "vespakoen/menu": "3.*"
@@ -14,8 +83,6 @@
 http://learninglaravel.net/laravel-dynamic-menu-tutorial/link
 https://github.com/lavary/laravel-menu#getting-started
 https://github.com/vespakoen/menu
-
-
 
 * whereis my customer library(function or class)
     http://ghost.rivario.com/laravel4%EC%97%90-%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0/
@@ -51,18 +118,6 @@ https://github.com/vespakoen/menu
 
 * auto deployment
     > push server use ftp?
-
-
-
-
-
-
-
-
-
-
-
-
 
 ----
 
