@@ -7,6 +7,22 @@
     $ cd dev.laravel 
     $ composer update
 
+* html helper 
+    laravelcollective/html
+    https://laravelcollective.com/docs/5.2/html
+    > add make function 
+        D:\workspace\vagrant\dev.laravel\vendor\laravelcollective\html\src\FormBuilder.php
+
+* js-validation
+    https://github.com/proengsoft/laravel-jsvalidation
+
+* tip
+    $ php artisan tinker
+        //테이블명: 스네이크 케이스, 복수형
+        >>> str_singular(studly_case('article_categories'))
+        //클래스명
+        >>> str_plural(snake_case('ArticleCategory'))
+
 ----
 
 * PHPSTORM
@@ -22,6 +38,8 @@
             providers
                 Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         >> php artisan ide-helper:generate
+        >> php artisan ide-helper:models
+        >> php artisan ide-helper:meta
 
 ----
 
@@ -43,23 +61,84 @@
         > 마이그레이션파일 만들기
         $ php artisan make:migration create_users_table
 
-    > 컨트롤러파일 만들기
-        php artisan make:controller PostController
-        Route::resource('post', 'PostController');
+----
 
-    php artisan route:cache
-    php artisan route:clear
+* 관리자페이지
+    > admin site url: setting/dashboard
+    $ php artisan make:controller Setting/DashboardController
+        > Route::resource('/setting/dashboard', 'Setting/DashboardController@index');
+
+----
+
+* USER CRUD
+    > php artisan make:controller Setting/UserController --resource
+        >> Route::resource('/user', 'UserController');
+    > php artisan make:request UserRequest
+    > php artisan make:policy UserPolicy
+    > provider 등록
+        >> D:\workspace\vagrant\dev.laravel\app\Providers\AuthServiceProvider.php
+
+----
+* MENU 
+    > add admin menu
+        D:\workspace\vagrant\dev.laravel\app\Providers\AppServiceProvider.php
+
+    > menu 관리
+    php artisan make:migration create_menus_table --create=menus
+    php artisan migrate
+    php artisan make:controller Setting/MenuController --resource
+    php artisan make:model Menu
+    php artisan make:request MenuRequest
+    php artisan make:policy MenuPolicy
+
+----
+* POST CRUD
+    > 게시판 이동로직 계층형으로 가능 ok 
+        > 소프트 삭제하기
+        > 중간에 삭제 되었을 때 확인 rebulid 하면 큰일
+        > 삭제로직 답글이 있을 경우 삭제는? 
+
+    php artisan make:migration create_posts_table --create=posts
+    php artisan migrate
+    php artisan make:controller Setting/PostController --resource
+        > route 등록
+        D:\workspace\vagrant\dev.laravel\app\Http\routes.php
+        Route::resource('setting/post', 'PostController');
+    php artisan make:model Post
+    php artisan make:request PostRequest
+    php artisan make:policy PostPolicy
+        > auth provider 등록
+        D:\workspace\vagrant\dev.laravel\app\Providers\AuthServiceProvider.php
+        Post::class => PostPolicy::class,
 
 
 
+----
 
+* TODO 
+    > menus.id => 10000부터 시작 1부터 시작으로 변경
+    >> 1이 아니라 0으로 변경
 
+    > rewrite menu migration 
 
+    > authorization
+        >> http://laravel.kr/docs/5.2/authorization
+        >>> isAdmin , isSuperAdmin
+        >>> policy 파일에서 role db 검색하여 로직구성
+            D:\workspace\vagrant\dev.laravel\app\Policies\UserPolicy.php
+        >>> 관리자, 슈퍼어드민, 어드민, 카페어드민, 권한
+            php artisan route:list 로부터 롤 생성
 
+    > route cache
+        >> php artisan route:cache
+        >> php artisan route:clear
 
-
-
-
+* DONE
+    > display left menu
+    > 소프트 삭제하기
+    > http://laravel.kr/docs/5.2/validation
+        >> jsvalidation
+    > 모델필드(fillable, hidden)와 밸리데이터 관계
 
 
 
@@ -95,9 +174,6 @@ https://github.com/vespakoen/menu
 
 ----
 
-* admin site
-> settings/dashboard
-
 * create db
     CREATE DATABASE sebinetech;
     GRANT ALL PRIVILEGES ON sebinetech.* TO sebinetech@localhost IDENTIFIED BY 'sebinetech*';
@@ -128,7 +204,6 @@ https://github.com/vespakoen/menu
     $ vagrant ssh
     $ composer create-project laravel/laravel /home/vagrant/workspace/dev.laravel --no-dev --prefer-dist -vvv
     $ serve dev.laravel /home/vagrant/workspace/dev.laravel/public 80
-
     $ mysql -uroot -psecret
 
 > add hosts file
@@ -138,4 +213,9 @@ https://github.com/vespakoen/menu
 
 > phpstorm
     File > New Project...
+
+
+
+
+
 
