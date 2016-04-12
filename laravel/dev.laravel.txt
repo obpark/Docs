@@ -6,6 +6,7 @@
     $ composer create-project laravel/laravel dev.laravel --no-dev --prefer-dist -vvv
     $ cd dev.laravel 
     $ composer update
+    $ sudo /etc/init.d/php7.0-fpm restart
 
 * html helper 
     laravelcollective/html
@@ -22,6 +23,10 @@
         >>> str_singular(studly_case('article_categories'))
         //클래스명
         >>> str_plural(snake_case('ArticleCategory'))
+
+* db debugging
+    D:\workspace\vagrant\dev.laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php
+        $loggingQueries = true;
 
 ----
 
@@ -129,9 +134,37 @@
         >>> 관리자, 슈퍼어드민, 어드민, 카페어드민, 권한
             php artisan route:list 로부터 롤 생성
 
+        권한
+          Roll db 화
+          슈퍼관리자? 일반적인 관리자? 사용자? 권한, 작성자 권한. 두가지 타입이 있음
+          리퀘트. 폴리시 어디서 권한체크 할지 결정
+            블레이드에서 버튼 제어를 하려면 폴리시에서 하는게 맞음. 폴리시 생성자에서 롤 체크 가능?
+          사용자 페이지에서도 테스트
+          컨트롤러 생성자에서 자동으로 테스트
+          사용자 페이지는 컨트롤러 생성자에 폴리시 미적용?
+
     > route cache
         >> php artisan route:cache
         >> php artisan route:clear
+
+
+    > 게시판 
+        대용량 데이터 test
+          100만건. 답글입력. 페이징.
+        게시판 생성로직
+          BoardController@store
+        $request->boardId, $request->id 삭제
+        이동로직
+          이동시 실제글은 남겨놈. 소프트식제. 삭제하면 리빌드 해야함?
+
+
+
+
+
+
+
+
+
 
 * DONE
     > display left menu
@@ -213,9 +246,4 @@ https://github.com/vespakoen/menu
 
 > phpstorm
     File > New Project...
-
-
-
-
-
 
