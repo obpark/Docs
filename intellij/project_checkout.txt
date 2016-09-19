@@ -18,7 +18,8 @@ Eclipse에서 import한 프로젝트를 IntelliJ에서 Checkout
         delete 'org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER'
         delete 'org.eclipse.jst.j2ee.internal.web.container'
 
-    Add as Maven Project
+    'pom.xml' mouse right click 
+        Add as Maven Project
 
     Add > Web
         edit 'Deployment Descriptors'

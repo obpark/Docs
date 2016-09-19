@@ -1,3 +1,6 @@
+----
+
+* Setting Server
 
 sudo php -i > ~/workspace/dev.laravel/public/php-info.txt
 http://dev.laravel/php-info.txt
@@ -21,9 +24,17 @@ sudo vi /etc/php/7.0/fpm/php.ini
 
 sudo service php7.0-fpm restart && sudo service nginx restart
 
+----
 
-https://confluence.jetbrains.com/display/PhpStorm/Laravel+Development+using+PhpStorm
-http://php-built.com/installing-xdebug-for-php7/
-https://gilbert.pellegrom.me/setting-up-xdebug-on-homestead-4-php-7/
-https://www.jetbrains.com/phpstorm/marklets/
-https://laravelista.com/debugging-a-laravel-web-application-with-phpstorm-on-homestead/
+* Setting PhpStorm 
+    > Run/Debug Configurations>Add New Configuration>PHP Web Application
+        > Aadd Sever>Use path mappings 
+
+----
+
+* REF
+    https://confluence.jetbrains.com/display/PhpStorm/Laravel+Development+using+PhpStorm
+    http://php-built.com/installing-xdebug-for-php7/
+    https://gilbert.pellegrom.me/setting-up-xdebug-on-homestead-4-php-7/
+    https://www.jetbrains.com/phpstorm/marklets/
+    https://laravelista.com/debugging-a-laravel-web-application-with-phpstorm-on-homestead/
