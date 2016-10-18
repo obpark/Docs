@@ -1,0 +1,11 @@
+sudo add-apt-repository ppa:ecometrica/servers
+sudo apt-get update
+sudo apt-get install wkhtmltopdf
+wkhtmltopdf --version
+
+sudo apt-get install xvfb
+xvfb-run --server-args="-screen 0, 1024x768x24" wkhtmltopdf http://google.com test.pdf
+xvfb-run --server-args="-screen 0, 1024x768x24" wkhtmltoimage http://google.com test.png
+
+apt-get install fonts-nanum fonts-nanum-coding fonts-nanum-extra
+
