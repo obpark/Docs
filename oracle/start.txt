@@ -1,0 +1,36 @@
+** start oracle
+> 리스너와 오라클을 구동해야 함
+
+----
+
+* 리스너 구동하는 법
+
+# which oracle
+    /u01/app/oracle/product/11.2.0/xe/bin/oracle
+# su - oracle
+$ cd /u01/app/oracle/product/11.2.0/xe/bin/
+$ ./lsnrctl start
+
+--
+
+* 리스너 Down & Up 방법
+# su - 오라클 유저
+# cd ~ (오라클 유저의 홈디렉토리)
+# cd bin (위의 예시의 경로로 치면 /data01/app/oracle/product/9.2.0/bin)
+# lsrnctl stop(start) 리스너 이름
+
+--
+
+* DB Down & Up 방법
+# su - 오라클 유저
+# sqlplus '/as sysdba'
+# startup
+# shutdown immediate
+
+* DB 다운 시 오류가 나는경우
+# shutdown abort
+# startup
+# shutdown immediate
+
+--
+
