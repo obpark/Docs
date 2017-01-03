@@ -7,11 +7,8 @@
     sudo mv *.ttf /usr/share/fonts
 
 * known_hosts Clean Up
-    $ ssh-keygen -F innobid.net 
-    $ ssh-keygen -R innobid.net 
-
-    $ ssh-keygen -F 114.108.177.243
-    $ ssh-keygen -R 114.108.177.243
+    $ ssh-keygen -F {server ip}
+    $ ssh-keygen -R {server ip}
 
 * excel memo 글자수에 맞춰 자동 크기 조정
     1. ALT+F11을 실행하여 VB 에디터 open
