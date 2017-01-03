@@ -1,0 +1,21 @@
+* create key
+> id_rsa(private key), id_rsa.pub(public key)
+> ssh-keygen -t rsa -b 2048
+
+* 공개키 authorized_keys에 등록
+> ssh-copy-id -i ~/.ssh/id_rsa.pub {server}
+--
+> scp id_rsa.pub {userid}@{server}:~/
+> cat id_rsa.pub >> ~/.ssh/authorized_keys
+
+* authorized_keys 소유권
+> chmod 700 ~/.ssh
+> chmod 600 ~/.ssh/authorized_keys
+
+* ssh private key dec
+> cp ~/.ssh/id_rsa ~/.ssh/id_rsa.enc
+> openssl rsa -in ~/.ssh/id_rsa.enc -out ~/.ssh/id_rsa
+> chmod 0400 ~/.ssh/id_rsa
+
+* ref
+> https://www.lesstif.com/pages/viewpage.action?pageId=12943452
