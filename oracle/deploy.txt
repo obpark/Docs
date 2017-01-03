@@ -1,0 +1,15 @@
+* toad를 이용해 개발서버를 백업하고 운영서버에 배포
+    > toad를 이용해 백업을 하려면 oracle client가 관리자로 설치되어야 함
+
+* import
+    # sqlplus /nolog
+    SQL> conn as sysdba;
+    Enter user-name: sys
+    Enter password: 
+    Connected.
+    SQL> show user;
+    USER is "SYS"
+    SQL> CREATE USER {user_id} IDENTIFIED BY {user_password};
+    SQL> GRANT CONNECT,RESOURCE,DBA TO {user_id};
+
+    # imp userid=system/{system user password} fromuser={dev server user id} touser={prd server user id} file={dump file path + file name}.dmp

@@ -1,0 +1,42 @@
+----
+
+* SYS
+> Oracle DB 관리자, Super User
+> data dictionary를 갖고 있음
+> default password : change_on_install ( 8i 이전 ver. )
+> DB 생성 및 삭제 가능
+
+* SYSTEM
+> 권한은 SYS와 동일하지만 DB를 생성할 권한이 없음
+> default password : manager ( 8i 이전 ver. )
+
+* SCOTT
+> Oracle에서 제공하는 샘플 사용자 계정
+> default password : tiger
+
+* HR
+> Oracle에서 제공하는 샘플 사용자 계정
+
+----
+
+* 오라클에서 관리자 계정 암호를 잊어버렸을 경우
+
+> 8i 버전 이하에서는 svrmgrl.exe가 존재하여 internal 관리자가 접속하여 비밀번호를 변경
+> 9i 버전 이상에서는 svrmgrl이 없어지고 아래와 같이 접속하도록 권장
+    >> 관리자 mode로 command창을 실행한 후, 아래의 명령을 실행한다.
+    # sqlplus /nolog
+    SQL> connect/ as sysdba
+    SQL> show user;
+    USER is "SYS"
+    SQL> alter user sys identified by 암호;
+    SQL> alter user system identified by 암호;
+
+    접속확인
+    SQL> connect sys/암호 as sysdba
+    SQL> connect systemp/암호
+
+----
+
+* 기본 관리 계정 생성
+    SQL> CREATE USER {user_id} IDENTIFIED BY {user_password};
+    SQL> GRANT CONNECT,RESOURCE,DBA TO {user_id};

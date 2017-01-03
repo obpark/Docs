@@ -1,3 +1,12 @@
+* 단축키
+    Search Everywhere Double Shift
+    Go to File Ctrl+Shift+N
+    Resent File Ctrl+E
+    Navigation Bar Alt+Home
+    Find Usages Alf+F7
+    Ctrl+ALT+O
+
+
 ----
 * 개요
 1. make empty project
