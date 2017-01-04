@@ -1,0 +1,85 @@
+* select base box
+    http://www.vagrantbox.es
+
+* add devlopment box
+    vagrant box add {dev project name} https://github.com/CommanderK5/packer-centos-template/releases/download/0.7.2/vagrant-centos-7.2.box
+    mkdir {dev project name} && cd {dev project name}
+    vagrant init {dev project name}
+    mkdir -p /E/workspace/vagrant/{dev project name}
+    vagrant up 
+    vagrant halt
+    vi Vagrantfile
+        config.vm.network "private_network", ip: "192.168.10.10"
+        config.vm.synced_folder "E:/workspace/vagrant/{dev project name}", "/var/www"
+        config.ssh.pty=true
+        config.vm.provider "virtualbox" do |vb|
+          vb.name = "{dev project name}"
+          vb.memory = "2048"
+        end
+    vagrant up && vagrant ssh
+
+* add hostfile
+    vi /C/Windows/System32/drivers/etc/hosts
+        192.168.10.10 {dev project name}
+
+* remove box 
+    $ cd {dev project name}
+    $ vagrant destroy #virtualbox에서 삭제
+    $ vagrant box list
+    $ vagrant box remove {dev project name} #vagrant에서 삭제
+    $ vagrant box list
+
+----
+
+* 참고
+    Vagrantfile은 설정을 담고 있으며, 실제 물리적인 box파일들은 init을 수행한 위치에 상관없이 계정 홈디렉토리 하위의 '.vagrant.d/boxes' 디렉토리에 저장되어 관리
+    원격의 box파일이나 로컬의 box파일은 'vagrant box add'로 추가하면, 모두 '~/.vagrant/.vagrant.d/boxes' 에 복사되어 저장
+
+----
+
+* base box에서 설치한 GuestAdditions과 local에 깔려 있는 virtualbox version이 안맞을 때 
+
+[default] GuestAdditions versions on your host (5.1.8) and guest (4.3.30) do not match.
+Loaded plugins: fastestmirror
+Repodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fast
+Determining fastest mirrors
+ * base: centos.mirror.cdnetworks.com
+ * epel: mirror.premi.st
+ * extras: centos.mirror.cdnetworks.com
+ * updates: centos.mirror.cdnetworks.com
+Package kernel-devel-3.10.0-327.4.5.el7.x86_64 already installed and latest version
+Package gcc-4.8.5-4.el7.x86_64 already installed and latest version
+Package binutils-2.23.52.0.1-55.el7.x86_64 already installed and latest version
+Package 1:make-3.82-21.el7.x86_64 already installed and latest version
+Package 4:perl-5.16.3-286.el7.x86_64 already installed and latest version
+Package bzip2-1.0.6-13.el7.x86_64 already installed and latest version
+Nothing to do
+Copy iso file C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
+mount: /dev/loop0 is write-protected, mounting read-only
+Installing Virtualbox Guest Additions 5.1.8 - guest version is 4.3.30
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 5.1.8 Guest Additions for Linux...........
+VirtualBox Guest Additions installer
+Removing installed version 4.3.30 of VirtualBox Guest Additions...
+Copying additional installer modules ...
+Installing additional modules ...
+vboxadd.sh: Building Guest Additions kernel modules.
+vboxadd.sh: You should restart your guest to make sure the new modules are actually used.
+vboxadd.sh: Starting the VirtualBox Guest Additions.
+
+Could not find the X.Org or XFree86 Window System, skipping.
+
+Got different reports about installed GuestAdditions version:
+Virtualbox on your host claims:   4.3.30
+VBoxService inside the vm claims: 5.1.8
+Going on, assuming VBoxService is correct...
+Got different reports about installed GuestAdditions version:
+Virtualbox on your host claims:   4.3.30
+VBoxService inside the vm claims: 5.1.8
+Going on, assuming VBoxService is correct...
+Got different reports about installed GuestAdditions version:
+Virtualbox on your host claims:   4.3.30
+VBoxService inside the vm claims: 5.1.8
+Going on, assuming VBoxService is correct...
+Restarting VM to apply changes...
+

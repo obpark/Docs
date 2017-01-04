@@ -28,6 +28,7 @@
     $ serve dev.laravel /home/vagrant/workspace/dev.laravel/public 80
     $ mkdir -p /home/vagrant/workspace/dev.laravel/
     $ composer create-project laravel/laravel /home/vagrant/workspace/dev.laravel --no-dev --prefer-dist -vvv
+    $ sudo systemctl restart nginx
     $ mysql -uhomestead -psecret
 
 ----

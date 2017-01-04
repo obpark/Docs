@@ -3,10 +3,20 @@
     $ vagrant up
     $ vagrant ssh
     $ mkdir -p /home/vagrant/workspace/dev.laravel
-    $ composer create-project laravel/laravel dev.laravel --no-dev --prefer-dist -vvv
+    $ composer create-project laravel/laravel /home/vagrant/workspace/dev.laravel --no-dev --prefer-dist -vvv
     $ cd dev.laravel 
     $ composer update
     $ sudo /etc/init.d/php7.0-fpm restart
+
+* create git repository
+    > VCS > Import into Version Control > Create Git Repository...
+    > File > Open
+    > Git > Add
+    > Git > Commit (un check 'Perform code analysis', 'Check TODO')
+    > create GitHub.com repository
+    > Git > Repository > Push > Define-remote
+        https://github.com/joinparky/dev.laravel.git
+
 
 * html helper 
     laravelcollective/html
@@ -34,7 +44,7 @@
     > http://blog.jetbrains.com/phpstorm/2015/01/laravel-development-using-phpstorm/
         > Settings > Plugins > Browse repositories… 
             >> Laravel Plugin > restart
-        > Settings > Other Settings > Laravel Plugin 
+        > Settings > Languages & Frameworks > PHP > Laravel 
             >> Enable Plugin for this Project
 
     > https://github.com/barryvdh/laravel-ide-helper
@@ -65,6 +75,8 @@
         $ php artisan migrate
         > 마이그레이션파일 만들기
         $ php artisan make:migration create_users_table
+
+    > http://dev.laravel/register
 
 ----
 
