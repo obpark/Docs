@@ -15,25 +15,26 @@
         C:\Users\obpark\.homestead
     $ ssh-keygen -t rsa -C "joinparky@gmail.com"
     $ vi ~/.homestead/Homestead.yaml
-        - map: D:/workspace/vagrant
-          to: /home/vagrant/workspace
+         folders:
+             - map: E:/workspace/vagrant
+               to: /home/vagrant/workspace
     $ vagrant up
     $ vagrant ssh
 
 * add site
     > add hosts file
-        192.168.10.10  dev.sebinetech
-    > vm setting 
-    $ serve dev.sebinetech /home/vagrant/workspace/sebinetech/laravel/public 80
-    $ mkdir -p /home/vagrant/workspace/sebinetech/
-    $ composer create-project laravel/laravel /home/vagrant/workspace/sebinetech/laravel --no-dev --prefer-dist -vvv
+        192.168.10.10  dev.laravel
+    > vm setting
+    $ serve dev.laravel /home/vagrant/workspace/dev.laravel/public 80
+    $ mkdir -p /home/vagrant/workspace/dev.laravel/
+    $ composer create-project laravel/laravel /home/vagrant/workspace/dev.laravel --no-dev --prefer-dist -vvv
     $ mysql -uhomestead -psecret
 
 ----
 
 ** LARAVEL 
 
-* install laravle 
+* install laravel
 > composer create-project laravel/laravel {directory} --no-dev --prefer-dist -vvv
 
 * 참고
