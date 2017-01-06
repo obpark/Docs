@@ -6,6 +6,7 @@
 - 4번이 가장 빠름
 - 1,2번은 index를 안탐
 - profile로 확인해 보면 3번보다 4번이 빠름
+
 <pre>
 1. WHERE created_at LIKE '2017-01-06%'
 2. WHERE date(created_at) = '2017-01-06'
