@@ -1,13 +1,13 @@
 function chkForm() {
     var rtnval = true;
     $(":input").each(function(){
-        //console.log( $(this).attr("type")+":"+$(this).attr("name") );
+        //console.log( $(this).attr("type")+":"+$(this).attr("name")+":"+$(this).val()+":" );
         if (!$(this).hasClass("require")) return true;
 
-        var name = $(this).attr("name");
+        var id = $(this).attr("id");
         if ($(this).is("textarea")) {
             if ($(this).val() == "") {
-                alert("질문을 입력하여 주십시오.");
+                alert("필수값을 입력하여 주십시오.");
                 this.focus();
                 rtnval = false;
                 return false;
@@ -16,16 +16,16 @@ function chkForm() {
         if ($(this).is("select")) {
         }
         if ($(this).attr("type") == "text") {
-            if (!$("input[name='"+name+"']").val()) {
-                alert("질문을 입력하여 주십시오.");
+            if (!$(this).val() || $(this).val().trim() == "") {
+                alert("필수값을 입력하여 주십시오.");
                 this.focus();
                 rtnval = false;
                 return false;
             }
         }
         if ($(this).attr("type") == "radio") {
-            if (!$("input[name='"+name+"']:checked").val()) {
-                alert("질문을 선택하여 주십시오.");
+            if (!$("#"+id+":checked").val()) {
+                alert("필수값을 선택하여 주십시오.");
                 this.focus();
                 rtnval = false;
                 return false;
