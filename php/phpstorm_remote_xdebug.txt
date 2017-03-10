@@ -1,0 +1,40 @@
+----
+
+* Setting Server
+
+sudo php -i > ~/workspace/dev.laravel/public/php-info.txt
+http://dev.laravel/php-info.txt
+https://xdebug.org/wizard.php
+wget http://xdebug.org/files/xdebug-2.4.0.tgz
+tar -xvzf xdebug-2.4.0.tgz
+cd xdebug-2.4.0
+phpize
+./configure
+make
+sudo cp modules/xdebug.so /usr/lib/php/20151012/
+sudo vi /etc/php/7.0/cli/php.ini
+sudo vi /etc/php/7.0/fpm/php.ini
+    zend_extension = /usr/lib/php/20151012/xdebug.so
+    xdebug.remote_enable = 1
+    xdebug.remote_connect_back=1
+    xdebug.remote_port = 9000
+    xdebug.scream=0
+    xdebug.show_local_vars=1
+    ;xdebug.idekey=PHPSTORM
+
+sudo service php7.0-fpm restart && sudo service nginx restart
+
+----
+
+* Setting PhpStorm 
+    > Run/Debug Configurations>Add New Configuration>PHP Web Application
+        > Aadd Sever>Use path mappings 
+
+----
+
+* REF
+    https://confluence.jetbrains.com/display/PhpStorm/Laravel+Development+using+PhpStorm
+    http://php-built.com/installing-xdebug-for-php7/
+    https://gilbert.pellegrom.me/setting-up-xdebug-on-homestead-4-php-7/
+    https://www.jetbrains.com/phpstorm/marklets/
+    https://laravelista.com/debugging-a-laravel-web-application-with-phpstorm-on-homestead/

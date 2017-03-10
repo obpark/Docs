@@ -1,0 +1,18 @@
+
+### packaging php exe
+  * http://stackoverflow.com/questions/9046675/convert-a-php-script-into-a-stand-alone-windows-executable
+  * https://www.sitepoint.com/community/t/convert-your-php-web-application-to-a-native-desktop-application-win-linux-mac/36520
+
+  * php compiler to .net
+    * http://www.peachpie.io/
+
+  * laravel desktop
+    * https://learninglaravel.net/building-a-desktop-application-with-laravel-5
+    * https://medium.com/@williamnwogbo_96678/building-a-desktop-application-with-php-laravel-5-3-eda2e5d72d4c#.k61l6i5sy
+    * https://github.com/williamnwogbo/laravel_desktop/?utm_source=learninglaravel.net
+
+  * PHPDesktop
+    * https://phpocean.com/tutorials/design-and-illustration/create-your-first-desktop-application-with-php-and-php-desktop/4
+
+  * built-in web server
+    * http://php.net/manual/kr/features.commandline.webserver.php
