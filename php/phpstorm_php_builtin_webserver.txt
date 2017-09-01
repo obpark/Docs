@@ -1,0 +1,36 @@
+* setup php 
+  * download php x64 Non Thread Safe 
+  * 압출풀기
+  * copy php.ini-development -> php.ini
+
+
+* setup xdebug
+  * download xdebug PHP 7.1 VC14 (64 bit)
+  * copy php_xdebug-2.5.5-7.1-vc14-nts-x86_64.dll E:\php-7.1.9-nts-Win32-VC14-x64\ext
+  * add php.ini
+    [Xdebug]
+    zend_extension=E:\php-7.1.9-nts-Win32-VC14-x64\ext\php_xdebug-2.5.5-7.1-vc14-nts-x86_64.dll
+    xdebug.remote_enable=1
+    xdebug.remote_host=localhost
+    xdebug.remote_port=9000
+  * Languages & Frameworks > PHP > Debug
+    * install browser toolbar or bookmarklets
+      * https://confluence.jetbrains.com/display/PhpStorm/Browser+Debugging+Extensions
+    * Enable listening for PHP Debug Connections
+
+
+* config phpstorm PHP Built-in Web Server
+  * Ctrl + Alt + S 
+  * Languages & Frameworks > PHP
+    * PHP language level: 7.1
+    * CLI Interpreter: PHP-7.1.9
+
+  * Run > Edit Configurations
+    * + > PHP Built-in Web Server
+    * Document root
+
+* enable extension php.ini
+  extension=php_mbstring.dll
+  extension=php_mysqli.dll
+  extension=php_openssl.dll
+  extension=php_pdo_mysql.dll

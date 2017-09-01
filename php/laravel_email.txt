@@ -1,0 +1,50 @@
+* gmail
+    1. create account
+    2. config security 
+        https://myaccount.google.com/security?pli=1#connectedapps
+    3. setting .env 
+        MAIL_DRIVER=smtp
+        MAIL_HOST=smtp.gmail.com
+        MAIL_PORT=587
+        MAIL_USERNAME=gjarvishelp@gmail.com
+        MAIL_PASSWORD=wlshazpdj*
+        MAIL_ENCRYPTION=tls
+
+* mailgun
+    composer require guzzlehttp/guzzle
+    'mailgun' => [
+        'domain' => 'your-mailgun-domain',
+        'secret' => 'your-mailgun-key',
+    ],
+
+* mailtrap
+    MAIL_DRIVER=smtp
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=5423415f3cd9d4b45
+    MAIL_PASSWORD=51e7807b760049
+    MAIL_ENCRYPTION=tls
+
+----
+
+1. 템플릿을 수정하기 위해 vendor publish하고 복사된 템플릿 파일을 수정
+    https://laravel.kr/docs/5.4/notifications#creating-notifications
+    php artisan vendor:publish --tag=laravel-notifications
+      태그를 사용안하면 모두 copy됨
+
+    E:\workspace\obpark\gcios\resources\views\vendor\notifications\email.blade.php
+
+2. 커스텀 ResetPassword를 만들고 문구를 한글로 수정
+    https://stackoverflow.com/questions/39493405/overwrite-default-password-reset-process-in-laravel-5-3
+    php artisan make:notification CustomResetPassword 
+    E:\workspace\obpark\gcios\app\Notifications\CustomResetPassword.php
+
+ex) 회원생성시 메일 발송
+    php artisan make:notification UserCreated
+    php artisan make:mail UserCreated
+
+----
+
+    php artisan config:cache 
+    php artisan config:clear
+

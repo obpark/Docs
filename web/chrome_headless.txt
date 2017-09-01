@@ -1,0 +1,17 @@
+
+----
+
+* 우분투 
+
+sudo apt-get install chromium-browser
+chromium-browser --headless --print-to-pdf https://google.com
+chromium-browser --headless --print-to-pdf http://naver.com
+
+----
+
+* Windows 안됨
+
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+cd C:\Program Files (x86)\Google\Chrome\Application\
+chrome.exe --headless --print-to-pdf https://blog.outsider.ne.kr
+
