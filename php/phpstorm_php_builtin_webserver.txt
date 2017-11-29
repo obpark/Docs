@@ -8,6 +8,7 @@
 
 * setup xdebug
   * download xdebug PHP 7.1 VC14 (64 bit)
+    * https://xdebug.org/download.php
   * copy php_xdebug-2.5.5-7.1-vc14-nts-x86_64.dll E:\php-7.1.9-nts-Win32-VC14-x64\ext
   * add php.ini
     [Xdebug]
@@ -31,8 +32,12 @@
     * + > PHP Built-in Web Server
     * Document root
 
-* enable extension php.ini
+* set config php.ini
+  extension_dir = "ext"
+
   extension=php_mbstring.dll
   extension=php_mysqli.dll
   extension=php_openssl.dll
   extension=php_pdo_mysql.dll
+  extension=php_gd2.dll
+

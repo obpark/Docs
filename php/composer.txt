@@ -1,0 +1,28 @@
+### Composer 
+
+* set phpstorm  
+  * Languages & Frameworks>PHP>Composer
+    * Execution
+      * composer.phar
+      * check Download composer.phar from getcomposer.org
+
+* set config 
+  * find packages
+    * https://packagist.org/packages/phpoffice/phpspreadsheet
+
+  * save composer.json
+    ```
+        {
+            "name": "{벤더}/{프로젝트명}",
+            "require": {
+                "monolog/monolog": "1.0.*",
+                "phpoffice/phpspreadsheet": "1.0.0-beta2"
+            }
+        }
+    ```
+
+* include vendor autoload
+  * require '../vendor/autoload.php';
+
+* 참고
+  * http://xpressengine.github.io/Composer-korean-docs/

@@ -1,10 +1,14 @@
-* VirtualBox Vagrant Homestead
-  * 
-
-* Install the Windows Subsystem for Linux
-  * 
+* Built-in web server 
+  * 장점
+    * local에서 debuger를 사용할 수 있다.
+  * 단점
+    * 
 
 * DEV Server
   * Tools>Deployment
 
+* Install the Windows Subsystem for Linux
+  * 
 
+* VirtualBox Vagrant Homestead
+  * docker로 많이 옮겨 가고 이제는 많이 사용하지 않는 듯 
