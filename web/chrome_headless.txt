@@ -7,6 +7,10 @@ sudo apt-get install chromium-browser
 chromium-browser --headless --print-to-pdf https://google.com
 chromium-browser --headless --print-to-pdf http://naver.com
 
+sudo chromium-browser --headless --screenshot https://google.com
+sudo chromium-browser --headless --disable-gpu --screenshot --window-size=1280,1696 https://www.chromestatus.com/
+
+
 ----
 
 * Windows 안됨
