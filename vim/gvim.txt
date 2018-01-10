@@ -1,0 +1,19 @@
+* set utf8   
+  * uncheck Native Language Support
+
+* 시작 위치 변경
+  * %HOMEDRIVE%%HOMEPATH%\Desktop
+
+* 폰트변경 
+    if has("gui_running")
+      if has("gui_gtk2")
+        set guifont=D2Coding:h10:cHANGEUL
+      elseif has("gui_macvim")
+        set guifont=D2Coding:h10:cHANGEUL
+      elseif has("gui_win32")
+        set guifont=D2Coding:h10:cHANGEUL
+      endif
+    endif
+
+* set colorscheme monokai
+  * C:\Program Files (x86)\Vim\vim80\colors
