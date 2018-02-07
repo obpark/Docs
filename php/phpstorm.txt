@@ -1,0 +1,8 @@
+* phpstorm
+    * install SlikSVN Subversion client
+    * change theme
+    * change font(D2Coding 13)
+    * Show brower popup in the editor
+    * Tab Appearance None
+    * install plugin IdeaVim
+
