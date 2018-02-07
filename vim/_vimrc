@@ -97,11 +97,14 @@ set laststatus=2 " turn on bottom bar
 
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Bitstream_Vera_Sans_Mono:h10:cHANGEUL
+    " set guifont=Bitstream_Vera_Sans_Mono:h10:cHANGEUL
+    set guifont=D2Coding:h11:cHANGEUL
   elseif has("gui_macvim")
-    set guifont=Bitstream_Vera_Sans_Mono:h10:cHANGEUL
+    " set guifont=Bitstream_Vera_Sans_Mono:h10:cHANGEUL
+    set guifont=D2Coding:h11:cHANGEUL
   elseif has("gui_win32")
-    set guifont=Bitstream_Vera_Sans_Mono:h10:cHANGEUL
+    " set guifont=Bitstream_Vera_Sans_Mono:h10:cHANGEUL
+    set guifont=D2Coding:h11:cHANGEUL
   endif
 endif
 
