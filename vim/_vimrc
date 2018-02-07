@@ -85,7 +85,8 @@ autocmd FileType text setlocal textwidth=0
 " gvim setting 
 " colorscheme torte
 " colorscheme monokai-refined
-colorscheme monokai
+" colorscheme monokai
+colorscheme solarized
 set enc=utf-8
 set fileencodings=utf-8
 
