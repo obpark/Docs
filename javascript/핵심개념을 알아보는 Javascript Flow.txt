@@ -1,0 +1,132 @@
+1. 데이터 타입
+  1-1. 기본형과 참조형의 종류 및 차이점
+    * Primitive Type 
+      * Number, String, Boolean, null, undefined
+    * Reference Type
+      * Object(Array, Function, RegExp)
+
+2. 함수
+  2-1. 호이스팅
+    * 함수와 변수 선언문을 위로 끌어올림
+  2-2. 함수선언문과 함수표현식
+    * 함수선언문, 기명 함수표현식, (익명) 함수표현식
+    * 익명함수를 변수에 할당 
+  2-3. 함수스코프, 실행컨텍스트
+    * 스코프: 변수 유효범위
+    * 실행컨텍스트: 실행되는 코드덩어리
+
+    ```
+      var a = 1;
+      (function() {
+          console.log(a); //undefined
+          var a = 2;
+      }());
+      함수안에서 호이스팅에 의해 함수선언만 상단으로 끌어올려 지고 
+      변수할당은 console.log 아래서 이뤄지기 때문
+    ```
+
+  2-4. 메소드
+    * this를 바인딩(함수는 this를 바인딩하지 않음)
+    * '.' 앞의 객체가 this
+  2-5. 콜백함수
+    * 제어권을 넘겨준다.
+
+    ```
+      setInterval(callback, milliseconds)
+      Array.prototype.forEach(callback[, thisArg])
+        콜백함수의 인자도 정해져 있음: currentValue, index, array
+      target.addEventListener(type, callback[, useCapture])
+    ```
+    * 메소드로 정의되어 있어도 콜백함수로 전달하면 this가 바인딩 되지 않음 
+
+3. this
+  3-1. this
+    * 전역공간에서
+      * 브라우저 콘솔: console.log(this); //Window
+      * node.js: console.log(this); //global
+    * 함수 내부에서
+      * 기본적으로 전역객체(Window / global 전역공간과 같음)
+    * 메소드 호출시
+      * 메소드 호출 주체(메소드명 앞)
+    * callback에서 
+      * 기본적으로는 함수내부에서와 동일
+      * 제어권을 가진 함수가 callback의 this를 명시한 경우 그에 따름
+      * 개발자가 this를 바인딩한 채로 callback을 넘기면 그에 따름
+      * ex)
+        * call: 즉시 호출, 인자가 thisArg 이후 나열되어 전해짐
+        * apply: 즉시 호출, 인자가 thisArg 이후 배열로 전해짐
+        * bind
+          * 새로운 함수 생성(currying)하여 return
+          * 인자가 thisArg 이후 나열되어 전해짐
+
+          ```
+          setTimeout(callback.bind(obj), 100)
+          ```
+    * 생성자함수에서
+      * 인스턴스
+
+4. 클로저
+  4-1. 클로저
+    * 함수와 함수가 선언된 어휘적 환경의 조합
+    * 함수와 그 함수가 선언될 당시의 환경정보 사이의 조합 
+    * 함수 내부에서 생성한 데이터와 그 유효범위로 인해 발생하는 특수한 현상 / 상태
+    * 최초 선언시의 정보를 유지!
+  4-2. 지역변수 만들기
+    * 함수에서 지역변수 및 내부함수 등을 생성한다.
+    * 외부에 노출시키고자 하는 멤버들로 구성된 객체를 return한다.
+    * return한 객체에 포함되지 않은 멤버들은 private하다.
+
+5. prototype
+  5-1. prototype과 constructor, __proto__
+    * Constructor(생성자함수)가 있을 때 new 연산자를 써서 instance를 만들면 생성자함수의 prototype이라는 프로퍼티가 인스턴스의 __proto__라는 프로퍼티에 전달이 됨
+    * __proto__는 사용할 때 생략할 수 있음
+  5-2. 메소드 상속 및 동작 원리
+  5-3. prototype chaining
+    * 숫자리터럴은 객체가 아니므로 prototype이 없지만 사용자가 객체처럼 메소드를 사용하려고 하면 자바스크립트가 자동으로 숫자리터럴을 Number 생성자함수의 instance로 변환
+    * Object prototype
+      * hasOwnProperty(), toString(), valueOf(), isPrototypeOf()
+    * Object 생성자함수 
+      * assign(), freeze(), create(), values(), keys()
+
+6. Class
+  6-1. prototype static 메소드 및 static 프로퍼티
+    * static methods, properties: 생성자함수에 직접할당 되어 있는 함수 및 프로퍼터  
+    * prototype 내부에 정의되어 있는 메소드를 prototype(보통은 prototype을 생략) methods라 함 
+
+    ```
+      Array -> Class
+      Array 
+        form(), isArray(), of() -> static methods
+        arguments, length, name -> static properties
+        prototype
+          concat(), filter(), forEach(), map(), push(), pop() -> (prototype) methods
+    ```
+
+  6-2. class 상속 구현
+    * employee에서 person을 상속
+    
+    ```
+      Employee.prototype = new Person();
+      Employee.prototype.constructor = Employee;
+    ```
+    * 부모클래스의 프로퍼티 삭제하기
+
+    ```
+      function Bridge() {}
+      Bridge.prototype = Person.prototype;
+      Employee.prototype = new Bridge();
+      Employee.prototype.constructor = Employee;
+    ```
+    * extendClass 사용하기
+
+    ```
+      var extendClass = (function() {
+          function Bridge() {}
+          return function(Parent, Child) {
+              Bridge.prototype = Parent.prototype;
+              Child.prototype = new Bridge();
+              Child.prototype.constructor = Child;
+              Child.prototype.superClass = Parent;
+          }
+      }());
+    ```
