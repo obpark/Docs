@@ -1,0 +1,98 @@
+* 라이브러리 모듈화
+  * http://www.nextree.co.kr/p4150/ 
+  * call 함수 이용
+
+  ```
+    (function() {
+        'use strict';
+        var root = this;
+        var version = '1.0';
+        var Module1;
+        if(typeof exports !== 'undefined') {
+            Module1 = exports;
+        } else {
+            Module1 = root.Module1 = {};
+        }
+        Module1.getVersion = function() {
+            return version;
+        }
+    }).call(this);
+    console.log(Module1.getVersion());
+  ```
+
+  * 글로벌 객체를 파라미터로 전달
+
+  ```
+    (function(global) {
+        var root = global;
+        var version = '1.0';
+        var Module2;
+        if(typeof exports !== 'undefined') {
+            Module2 = exports;
+        } else {
+            Module2 = root.Module2 = {};
+        }
+        Module2.getVersion = function() {
+            return version;
+        }
+    }(this));
+    console.log(Module2.getVersion());
+  ```
+
+  * 즉시실행함수 내부에서 글로벌 객체를 내부 변수에 할당
+
+  ```
+    (function() {
+        var root = this;
+        var version = '1.0';
+        var Module3;
+        if(typeof exports !== 'undefined') {
+            Module3 = exports;
+        } else {
+            Module3 = root.Module3 = {};
+        }
+        Module3.getVersion = function() {
+            return version;
+        }
+    }());
+    console.log(Module3.getVersion());
+  ```
+
+  * apply 함수 이용
+
+  ```
+    (function() {
+        var root = this;
+        var version = '1.0';
+        var Module4;
+        if(typeof exports !== 'undefined') {
+            Module4 = exports;
+        } else {
+            Module4 = root.Module4 = {};
+        }
+        Module4.getVersion = function() {
+            return version;
+        }
+    }).apply(this) ;
+    console.log(Module4.getVersion());
+  ```
+
+  * 기명 즉시실행함수 이용
+
+  ```
+    var Module5 = (function() {  
+        var root = this;
+        var version = '1.0';
+        var Module;
+        if(typeof exports !== 'undefined') {
+            Module = exports;
+        } else {
+            Module = root.Module = {};
+        }
+        Module.getVersion = function() {
+            return version;
+        }
+        return Module;
+    }());
+    console.log(Module5.getVersion());  
+  ```
