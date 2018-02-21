@@ -1,8 +1,16 @@
 * phpstorm
-    * install SlikSVN Subversion client
-    * change theme
-    * change font(D2Coding 13)
-    * Show brower popup in the editor
-    * Tab Appearance None
-    * install plugin IdeaVim
+  * install SlikSVN Subversion client
+  * change theme
+  * change editor font(D2Coding 13)
+  * Show brower popup in the editor
+  * Tab Appearance None
+  * install plugin IdeaVim
 
+* External connections
+  * unchecked - Brreak at first line in PHP scripts
+
+* VCRUNTIME140.dll 오류 
+  * http://pentode.tistory.com/76
+  * VC14 는 Microsoft Visual C++ 2015 버전으로 컴파일 
+  * Visual Studio 2015용 Visual C++ 재배포 가능 패키치를 다운 받아 설치
+  * https://www.microsoft.com/ko-kr/download/confirmation.aspx?id=48145
