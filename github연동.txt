@@ -1,0 +1,21 @@
+# github에서 새 repository 생성
+# https://github.com/obpark/vuejs.git
+# 개발폴더 선택
+    cd /mnt/c/workspace
+    mkdir vuejs
+    cd vuejs
+# github 연동
+    echo "# vuejs" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git remote add origin https://github.com/obpark/vuejs.git
+    git push -u origin master
+# public key 연결
+    $ ssh-keygen
+    $ cat ~/.ssh/id_rsa.pub
+    https://github.com/settings/keys
+      New SSH key
+    * Set your remote URL to a form that supports SSH
+      $ git remote set-url origin git+ssh://git@github.com/obpark/vuejs.git
+      $ git remote show origin
