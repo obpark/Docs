@@ -1,9 +1,0 @@
-Background Intelligent Transfer Servic 
-
-Connected User Experiences and Telemetry
-
-Windows Modules Installer Worker
-
-Windows Search
-
-Superfetch
