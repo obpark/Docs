@@ -5,6 +5,9 @@
   * Show browser popup in the editor
   * Tab Appearance None
   * install plugin IdeaVim
+  
+* artisan
+  * 'Tools > Command Line Tool Support' Tool based on Symfony Console
 
 * External connections
   * unchecked - Brreak at first line in PHP scripts
