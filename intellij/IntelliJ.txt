@@ -20,6 +20,12 @@
     Run > Edit Configurations > add > Tomcat Server > Local 
 
 ----
+
+* properties 한글 깨짐
+  * Editor > File Encodings
+  * UTF-8, Transparent native-to-ascii conversion
+
+----
 * console log(톰켓 console log 한글 깨질경우)
     C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1\bin\idea64.exe.vmoptions
     > -Dfile.encoding=UTF-8 
