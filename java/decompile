@@ -1,0 +1,5 @@
+C:\Program Files\JetBrains\IntelliJ IDEA 2017.3.4\plugins\java-decompiler\lib
+
+java -cp java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler classes java 
+
+https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine
