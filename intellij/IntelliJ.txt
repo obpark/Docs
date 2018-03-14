@@ -25,6 +25,9 @@
   * Editor > File Encodings
   * UTF-8, Transparent native-to-ascii conversion
 
+* Settings > Appearance & Behaviour > System Settings > Reopen last project on startup
+* https://github.com/jkaving/intellij-colors-solarized
+
 ----
 * console log(톰켓 console log 한글 깨질경우)
     C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1\bin\idea64.exe.vmoptions
