@@ -5,8 +5,8 @@
   * Show browser popup in the editor
   * Tab Appearance None
   * install plugin IdeaVim
-  * Settings>Appearance & Behaviour>System Settings>Reopen last project on startup
-  * Settings>Editor>Color Scheme>Solarized Dark
+  * Settings > Appearance & Behaviour > System Settings > Reopen last project on startup
+  * Settings > Editor > Color Scheme > Solarized Dark
   
 * artisan
   * 'Tools > Command Line Tool Support' Tool based on Symfony Console
