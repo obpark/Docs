@@ -1,13 +1,13 @@
 * 단축키
-    Search Everywhere Double Shift
-    Go to File Ctrl+Shift+N
-    Resent File Ctrl+E
-    Navigation Bar Alt+Home
-    Find Usages Alf+F7
-    Ctrl+ALT+O
-
+  * Search Everywhere Double Shift
+  * Go to File Ctrl+Shift+N
+  * Resent File Ctrl+E
+  * Navigation Bar Alt+Home
+  * Find Usages Alf+F7
+  * Ctrl+ALT+O
 
 ----
+
 * 개요
 1. make empty project
 2. checkout version control system
@@ -28,7 +28,6 @@
 * Settings > Appearance & Behaviour > System Settings > Reopen last project on startup
 * https://github.com/jkaving/intellij-colors-solarized
 
-----
 * console log(톰켓 console log 한글 깨질경우)
     C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1\bin\idea64.exe.vmoptions
     > -Dfile.encoding=UTF-8 
@@ -38,7 +37,17 @@
 
 * extend trial 
     > delete C:\Users\obpark\.IntelliJIdea15\config\eval\idea15.evaluation.key
+    
+----
 
+* import eclipse project from vcs
+  * VCS > Checkout from Version Control
+  * Checkout From Version Control
+    * Would you like to open it? NO
+  * Import Module
+    * File > New > Module from Existing Sources...
+    * Import module from external model - Eclipse
+    
 ----
 
 * was hot swapping 
